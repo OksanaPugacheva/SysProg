@@ -21,7 +21,7 @@ int main(int argc, char const *argv[] )
         exit(-1);
 
     case 0:
-        execvp(argv[1], &argv[1]);    
+        execvp(argc[1], &argv[1]);    
         exit(-1);
     
     default:
