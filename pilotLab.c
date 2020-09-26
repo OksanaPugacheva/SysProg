@@ -6,9 +6,8 @@
 #include <sys/wait.h>
 #include <locale.h>
 
-int main()
+int main(int argc, char const *argv[] )
 {
-    char *arg[]={"./pilotChild", NULL};
     pid_t idProc;
     int status; 
     
@@ -22,7 +21,8 @@ int main()
         exit(-1);
 
     case 0:
-        execvp(arg[0], arg);    
+        execvp(argv[1], &argv[1]);    
+        exit(-1);
     
     default:
         printf("Родительский процесс [%d] запущен\n", getpid());
