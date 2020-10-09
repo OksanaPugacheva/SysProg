@@ -9,7 +9,7 @@ void main() {
    FILE *input = NULL;
    char c;
    int *a = NULL, i = 0;
-   int lines = 0;
+   int lines = 1;
    int any;
   
    input = fopen("F.txt", "rt");
@@ -30,8 +30,14 @@ void main() {
          } while(any != EOF);
 
    int y;
-    printf("Всего %d строк, выберите какую вывести:\n",lines);
+   
+   while (1)
+   {
+    printf("Всего %d строк, выберите какую вывести(Для выхода выберите 0):\n",lines);
     scanf("%d", &y);
+
+    if(y==0){break;}
+    if(y>lines){printf("Такой строки нет\n\n"); continue;}
   
     fseek(input, a[y-2], SEEK_SET ); 
     
@@ -39,7 +45,8 @@ void main() {
       if(c=='\n') break;
       fprintf(stdout, "%c", c); 
    }
-   printf("\n");
+   printf("\n\n");}
+
    fclose(input);
    
 }
