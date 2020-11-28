@@ -16,7 +16,7 @@ int main(){
         exit(-1); 
     } 
 
-    if(fork() == -1){ 
+    if(fork() < 0){ 
         printf("Не удалось создать подпроцесс\n");
         exit(-1);
 
